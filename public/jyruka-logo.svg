@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" width="360" height="110">
+  <defs>
+    <!-- Background subtle gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+
+    <!-- 3D Gold Gradient for Emblem -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5B8" />
+      <stop offset="20%" stop-color="#F3CA52" />
+      <stop offset="45%" stop-color="#D4AF37" />
+      <stop offset="75%" stop-color="#997300" />
+      <stop offset="90%" stop-color="#553A00" />
+      <stop offset="100%" stop-color="#FFE885" />
+    </linearGradient>
+
+    <!-- Edge rim highlight -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#E5B83B" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#3D2900" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Silver 3D Text Gradient -->
+    <linearGradient id="silverGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#F8FAFC" />
+      <stop offset="60%" stop-color="#E2E8F0" />
+      <stop offset="90%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+
+    <!-- Drop Shadow Filter for 3D Relief -->
+    <filter id="shadow3D" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+
+    <filter id="glowGold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Golden Emblem Group -->
+  <g transform="translate(10, 5)" filter="url(#shadow3D)">
+    <!-- Outer Golden C Arc -->
+    <path
+      d="M 50,6 A 44,44 0 1,0 86,30 L 74,38 A 30,30 0 1,1 50,20 A 30,30 0 0,1 72,30 L 84,18 A 44,44 0 0,0 50,6 Z"
+      fill="url(#goldGradient)"
+    />
+    <!-- Arc highlights -->
+    <path
+      d="M 50,7 A 43,43 0 0,0 12,50 A 43,43 0 0,0 50,93"
+      stroke="url(#goldRim)"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      fill="none"
+    />
+
+    <!-- Handshake inside -->
+    <g id="handshake">
+      <!-- Left Arm -->
+      <path d="M 22,58 L 34,44 L 41,50 L 29,66 Z" fill="url(#goldGradient)" />
+      <!-- Left Hand -->
+      <path d="M 33,45 C 38,40 44,40 49,43 L 60,53 C 61,54 60,57 58,58 L 52,63 C 51,64 49,64 48,63 L 38,54 Z" fill="url(#goldGradient)" />
+      <!-- Right Arm -->
+      <path d="M 76,46 L 64,60 L 57,54 L 69,38 Z" fill="url(#goldGradient)" />
+      <!-- Right Hand -->
+      <path d="M 65,59 C 60,64 54,64 49,61 L 41,53 C 40,52 41,49 43,48 L 50,43 C 52,41 55,42 56,43 L 64,52 Z" fill="url(#goldGradient)" />
+
+      <!-- Clasped Finger Lines -->
+      <path d="M 46,47 L 54,54 C 55,55 54,57 53,58 L 50,60" stroke="#704D00" stroke-width="2" stroke-linecap="round" fill="none" />
+      <path d="M 43,51 L 50,57 C 51,58 50,60 49,61 L 46,63" stroke="#704D00" stroke-width="2" stroke-linecap="round" fill="none" />
+      <path d="M 40,55 L 46,60 C 47,61 46,63 45,64 L 43,65" stroke="#704D00" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+      <!-- Highlights -->
+      <circle cx="48" cy="46" r="2.2" fill="#FFFFFF" opacity="0.85" />
+      <path d="M 36,46 Q 44,41 52,46" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8" />
+    </g>
+  </g>
+
+  <!-- 3D Silver "Jyruka" Typography -->
+  <g filter="url(#shadow3D)">
+    <text
+      x="120"
+      y="68"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="64"
+      font-weight="bold"
+      letter-spacing="-1"
+      fill="url(#silverGradient)"
+    >
+      Jyruka
+    </text>
+  </g>
+</svg>
