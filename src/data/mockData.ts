@@ -251,83 +251,35 @@ export const TRUST_POINTS = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    id: 'team-1',
-    name: 'Julian Thorne',
-    role: 'Founder & Managing Director',
-    bio: 'Former Engineering Director at scale-ups. Passionate about empowering modern companies with elastic, high-velocity website development squads.',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-    skills: ['Product Strategy', 'Systems Architecture', 'Agile Operations', 'Talent Curation'],
+    id: 'ruthramoorthy-founder',
+    name: 'Ruthramoorthy',
+    role: 'Founder • UI/UX Designer & Full-Stack Developer',
+    bio: 'Founder and technical visionary at Jyruka. Specialized in high-conversion UI/UX design systems, scalable React architectures, and full-stack web solutions from concept to production.',
+    avatar: '/ruthram-profile.png',
+    skills: ['UI/UX Design', 'Full-Stack Development', 'React & TypeScript', 'Design Systems', 'Python & IoT', 'Tailwind CSS'],
     status: 'Active',
-    completedProjects: 45,
+    completedProjects: 15,
     rating: 5.0,
     socials: { linkedin: '#', twitter: '#' }
-  },
-  {
-    id: 'team-2',
-    name: 'Seraphina Lin',
-    role: 'Head of Design & Creative Lead',
-    bio: 'Specialist in Design Systems, brand transformation, and micro-interactions with over 9 years of product design leadership.',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-    skills: ['UI/UX Design', 'Figma Systems', 'Motion Design', 'Brand Architecture'],
-    hourlyRate: '$140/hr',
-    status: 'On Project',
-    completedProjects: 38,
-    rating: 4.9,
-    socials: { linkedin: '#', twitter: '#' }
-  },
-  {
-    id: 'team-3',
-    name: 'Darius Thorne',
-    role: 'Lead Full-Stack Architect',
-    bio: 'TypeScript & Cloud specialist. Passionate about performant frontends, serverless architectures, and real-time data streaming.',
-    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
-    skills: ['React/Next.js', 'Node.js', 'PostgreSQL', 'Cloud Infrastructure', 'GraphQL'],
-    hourlyRate: '$150/hr',
-    status: 'Available',
-    completedProjects: 41,
-    rating: 5.0,
-    socials: { github: '#', linkedin: '#' }
-  },
-  {
-    id: 'team-4',
-    name: 'Amara Okafor',
-    role: 'Principal Growth & Analytics Strategist',
-    bio: 'Data-driven growth marketer specializing in B2B SaaS demand gen, SEO moats, and high-converting lifecycle pipelines.',
-    avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80',
-    skills: ['Growth Sprints', 'Technical SEO', 'Conversion Optimization', 'Paid Acquisition'],
-    hourlyRate: '$130/hr',
-    status: 'On Project',
-    completedProjects: 29,
-    rating: 4.9,
-    socials: { linkedin: '#' }
-  },
-  {
-    id: 'team-5',
-    name: 'Kai Takahashi',
-    role: 'Senior 3D & Creative Developer',
-    bio: 'Pushes the boundaries of web experiences with Three.js, shaders, interactive WebGL, and bespoke creative development.',
-    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80',
-    skills: ['Three.js', 'WebGL', 'Shaders', 'Creative UI', 'Interactive Art'],
-    hourlyRate: '$145/hr',
-    status: 'Available',
-    completedProjects: 26,
-    rating: 5.0,
-    socials: { github: '#', twitter: '#' }
-  },
-  {
-    id: 'team-6',
-    name: 'Maya Patel',
-    role: 'Staff Technical Writer & Content Architect',
-    bio: 'Translates complex software architectures into crystal clear developer docs, launch playbooks, and engaging thought leadership.',
-    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80',
-    skills: ['API Documentation', 'Technical Content', 'Developer Relations', 'Whitepapers'],
-    hourlyRate: '$115/hr',
-    status: 'Active',
-    completedProjects: 33,
-    rating: 4.9,
-    socials: { linkedin: '#' }
   }
 ];
+
+export const COLLABORATOR_COMPANY = {
+  id: 'unitaryx',
+  name: 'UnitaryX',
+  tagline: "We Don't Compete, We Lead",
+  role: 'Official Collaborator & Strategic Technology Partner',
+  logo: '/unitaryx-logo.svg',
+  bio: 'Strategic engineering and digital solutions collaborator partnering with Jyruka on high-impact web architectures, custom development sprints, and product launches.',
+  collaborationAreas: [
+    'Enterprise Web Architectures',
+    'Full-Stack System Engineering',
+    'Custom Digital Product Sprints',
+    'Joint Technology Advisory'
+  ],
+  status: 'Active Partner',
+  rating: 5.0
+};
 
 export const HOW_IT_WORKS_STEPS: StepItem[] = [
   {
@@ -463,9 +415,9 @@ Key advantages include:
     readTime: '4 min read',
     date: 'Sep 12, 2025',
     author: {
-      name: 'Julian Thorne',
-      role: 'Founder, Jyruka',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80'
+      name: 'Ruthramoorthy',
+      role: 'Founder • UI/UX Designer & Full-Stack Developer',
+      avatar: '/ruthram-profile.png'
     },
     coverImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80'
   },
@@ -483,29 +435,29 @@ In this guide, we walk through our battle-tested methodology:
     readTime: '6 min read',
     date: 'Aug 28, 2025',
     author: {
-      name: 'Seraphina Lin',
-      role: 'Head of Design, Jyruka',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80'
+      name: 'Ruthramoorthy',
+      role: 'Founder • UI/UX Designer & Full-Stack Developer',
+      avatar: '/ruthram-profile.png'
     },
     coverImage: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'react-19-performance-guide',
-    title: 'Modern Frontend Architecture in 2025: Speed, Edge Runtimes, and Micro-Interactions',
-    excerpt: 'A deep dive into optimizing web client rendering latency, subtle physics-based motion, and seamless 3D canvas integrations.',
-    content: `User attention is scarcer than ever. If a B2B SaaS landing page or web application stutters during navigation, users bounce.
+    title: 'Modern Frontend Architecture: Speed, Scalable Systems, and Clean Interaction Design',
+    excerpt: 'A deep dive into optimizing web client rendering latency, subtle motion, and responsive component systems.',
+    content: `User attention is scarcer than ever. If a web application stutters during navigation, users bounce.
 
-Our engineering roster strictly adheres to the following principles:
-- Keeping bundle sizes lean by tree-shaking icon libraries and using lightweight shader primitives.
-- Offloading heavy 3D calculations to WebGL shaders and worker threads.
+Our engineering standards strictly adhere to the following principles:
+- Keeping bundle sizes lean by tree-shaking libraries and using lightweight UI primitives.
+- Ensuring seamless responsive accessibility on mobile devices.
 - Utilizing Framer Motion layout springs to create tactile, native-feeling feedback for every user interaction.`,
     category: 'Engineering',
     readTime: '5 min read',
     date: 'Aug 14, 2025',
     author: {
-      name: 'Darius Thorne',
-      role: 'Lead Architect, Jyruka',
-      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80'
+      name: 'UnitaryX Tech Team',
+      role: 'Official Strategic Collaborator',
+      avatar: '/unitaryx-logo.svg'
     },
     coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80'
   }

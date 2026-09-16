@@ -52,10 +52,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Only SuperAdmin credentials are authorized
     if (SUPERADMIN_EMAILS.includes(cleanEmail) && cleanPass === SUPERADMIN_PASS) {
       const superAdminUser: AuthUser = {
-        id: 'superadmin-ruthram',
-        name: 'Ruthram',
+        id: 'superadmin-ruthramoorthy',
+        name: 'Ruthramoorthy',
         email: cleanEmail,
-        role: 'SuperAdmin & Managing Director',
+        role: 'Founder & SuperAdmin',
         avatar: '/ruthram-profile.png',
         userType: 'superadmin'
       };

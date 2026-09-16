@@ -14,12 +14,10 @@ import {
   Phone,
   Mail
 } from 'lucide-react';
-import { TEAM_MEMBERS } from '../data/mockData';
+import { TEAM_MEMBERS, COLLABORATOR_COMPANY } from '../data/mockData';
 import { COMPANY_INFO } from '../data/companyInfo';
 
 export const AboutPage: React.FC = () => {
-  const [hoveredMember, setHoveredMember] = useState<string | null>(null);
-
   const values = [
     {
       title: 'Craft Over Volume',
@@ -118,77 +116,170 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Founder & Team Section (Animated grid, hover reveal) */}
+      {/* Founder & Collaborator Section */}
       <section className="space-y-12">
         <div className="text-center max-w-2xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2 block">
-            Leadership & Core Specialists
+            Leadership & Strategic Collaboration
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Meet the people behind Jyruka
+            The Founder & Official Collaborator
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            Hover over any team member card to reveal their specialist competencies, project stats, and background.
+            Directed by founder Ruthramoorthy and powered in strategic partnership with UnitaryX.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Founder Card: Ruthramoorthy */}
           {TEAM_MEMBERS.map((member) => (
             <motion.div
               key={member.id}
-              onMouseEnter={() => setHoveredMember(member.id)}
-              onMouseLeave={() => setHoveredMember(null)}
-              className="relative rounded-3xl bg-white border border-slate-200 overflow-hidden group transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="relative rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:border-emerald-500/50 hover:shadow-xl transition-all flex flex-col justify-between"
             >
-              {/* Photo */}
-              <div className="relative h-72 w-full overflow-hidden bg-slate-100">
-                <img
-                  src={member.avatar}
-                  alt={member.name}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-95"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+              <div>
+                {/* Photo Header */}
+                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-slate-900 flex items-center justify-center">
+                  <img
+                    src={member.avatar}
+                    alt={member.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
 
-                {/* Rating badge */}
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 flex items-center gap-1 text-xs text-amber-500 font-bold">
+                  {/* Badges */}
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-600/90 backdrop-blur-md text-white text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>Founder</span>
+                  </div>
+
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 flex items-center gap-1 text-xs text-amber-500 font-bold shadow-sm">
+                    <Star className="w-3.5 h-3.5 fill-amber-400" />
+                    <span>{member.rating.toFixed(1)}</span>
+                  </div>
+
+                  <div className="absolute bottom-4 left-6 right-6 text-white">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-semibold text-emerald-400 mt-0.5">
+                      {member.role}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 sm:p-7 space-y-4">
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {member.bio}
+                  </p>
+
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                      Core Competencies
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {member.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="text-xs px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom stats */}
+              <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                <span className="font-semibold text-slate-700">{member.completedProjects}+ Production Deliveries</span>
+                <span className="text-emerald-700 font-bold flex items-center gap-1">
+                  <Sparkles className="w-3.5 h-3.5" /> Full-Stack & UI/UX Specialist
+                </span>
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Collaborator Card: UnitaryX */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="relative rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:border-sky-500/50 hover:shadow-xl transition-all flex flex-col justify-between"
+          >
+            <div>
+              {/* Logo / Brand Header */}
+              <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-gradient-to-br from-slate-50 via-sky-50/40 to-slate-100 flex flex-col items-center justify-center p-8 border-b border-slate-100">
+                {/* Circular badge */}
+                <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-white border border-slate-200 shadow-xl p-4 flex items-center justify-center transition-transform duration-500 hover:scale-105">
+                  <img
+                    src={COLLABORATOR_COMPANY.logo}
+                    alt={COLLABORATOR_COMPANY.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                {/* Badge */}
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-sky-600/90 backdrop-blur-md text-white text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                  <HeartHandshake className="w-3.5 h-3.5" />
+                  <span>Official Collaborator</span>
+                </div>
+
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 flex items-center gap-1 text-xs text-amber-500 font-bold shadow-sm">
                   <Star className="w-3.5 h-3.5 fill-amber-400" />
-                  <span>{member.rating.toFixed(1)}</span>
+                  <span>{COLLABORATOR_COMPANY.rating.toFixed(1)}</span>
+                </div>
+
+                <div className="mt-4 text-center">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+                    {COLLABORATOR_COMPANY.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-semibold text-sky-700 mt-0.5">
+                    "{COLLABORATOR_COMPANY.tagline}"
+                  </p>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 tracking-tight">
-                  {member.name}
-                </h3>
-                <p className="text-xs font-semibold text-emerald-700 mt-0.5">
-                  {member.role}
+              <div className="p-6 sm:p-7 space-y-4">
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {COLLABORATOR_COMPANY.bio}
                 </p>
 
-                <p className="mt-3 text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
-                  {member.bio}
-                </p>
-
-                {/* Skills tags revealed on hover */}
-                <div className="mt-4 pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
-                  {member.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-4 flex items-center justify-between text-xs text-slate-500">
-                  <span>{member.completedProjects}+ completed sprints</span>
-                  <span className="text-emerald-700 font-medium">Vetted Specialist</span>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                    Collaboration Focus
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {COLLABORATOR_COMPANY.collaborationAreas.map((area, i) => (
+                      <span
+                        key={i}
+                        className="text-xs px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800 font-medium"
+                      >
+                        {area}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            {/* Bottom status */}
+            <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span className="font-semibold text-slate-700">{COLLABORATOR_COMPANY.status}</span>
+              <span className="text-sky-700 font-bold flex items-center gap-1">
+                <Zap className="w-3.5 h-3.5" /> Strategic Tech Alliance
+              </span>
+            </div>
+          </motion.div>
         </div>
       </section>
 

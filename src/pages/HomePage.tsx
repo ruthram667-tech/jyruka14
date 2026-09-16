@@ -14,7 +14,6 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { HeroShopifyIllustration } from '../components/common/HeroShopifyIllustration';
-import { BrandPartnersRow } from '../components/common/BrandPartnersRow';
 import { ServiceCard } from '../components/cards/ServiceCard';
 import { PortfolioCard } from '../components/cards/PortfolioCard';
 import { TestimonialCard } from '../components/cards/TestimonialCard';
@@ -141,8 +140,40 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* BRAND PARTNERS SOCIAL PROOF ROW */}
-      <BrandPartnersRow />
+      {/* OFFICIAL COLLABORATOR STRIP */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.35 }}
+          className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0 shadow-sm">
+              <img src="/unitaryx-logo.svg" alt="UnitaryX" className="w-full h-full object-contain" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200">
+                  Official Collaborator
+                </span>
+                <span className="text-xs text-slate-400 font-medium">Strategic Tech Alliance</span>
+              </div>
+              <p className="text-sm font-semibold text-slate-800 mt-0.5">
+                UnitaryX — <span className="text-slate-500 font-normal italic">"We Don't Compete, We Lead"</span>
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/about"
+            className="text-xs font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 group shrink-0"
+          >
+            <span>Learn about our collaboration</span>
+            <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </motion.div>
+      </section>
 
       {/* STATS SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

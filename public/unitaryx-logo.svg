@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Shadow filter for circle -->
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
+
+    <!-- Linear Gradients for the interlocking X -->
+    <linearGradient id="blueGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#082f49" />
+    </linearGradient>
+
+    <linearGradient id="blueGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="45%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <linearGradient id="highlightGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#7dd3fc" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <linearGradient id="darkBevel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#075985" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular background badge -->
+  <circle cx="200" cy="200" r="185" fill="#ffffff" stroke="#e2e8f0" stroke-width="2.5" filter="url(#softShadow)" />
+
+  <!-- Modern Geometric Interlocking X -->
+  <g id="emblem-x" transform="translate(200, 160)">
+    <!-- Diagonal Bar 1: Top-Left to Bottom-Right -->
+    <!-- Top-left segment -->
+    <path d="M -75 -65 L -40 -65 L -10 -20 L -30 5 Z" fill="url(#blueGrad1)" />
+    <!-- Bottom-right segment -->
+    <path d="M 10 20 L 40 65 L 75 65 L 30 -5 Z" fill="url(#blueGrad1)" />
+
+    <!-- Diagonal Bar 2: Top-Right to Bottom-Left (Front layer) -->
+    <!-- Top-right segment -->
+    <path d="M 75 -65 L 40 -65 L 0 -10 L 25 -38 Z" fill="url(#blueGrad2)" />
+    <!-- Bottom-left segment -->
+    <path d="M -75 65 L -40 65 L 0 10 L -25 38 Z" fill="url(#blueGrad2)" />
+
+    <!-- Central Interlocking Bridge -->
+    <polygon points="-35,-10 0,-50 35,-10 0,30" fill="url(#highlightGrad)" opacity="0.95" />
+    <polygon points="-35,10 0,-30 35,10 0,50" fill="url(#blueGrad2)" />
+    <!-- Inner diamond cut -->
+    <polygon points="0,-18 18,0 0,18 -18,0" fill="#ffffff" />
+    <polygon points="0,-12 12,0 0,12 -12,0" fill="url(#blueGrad1)" />
+
+    <!-- Sharp Bevel Edge highlights for 3D look -->
+    <path d="M -75 -65 L -60 -65 L -20 -10 L -35 -10 Z" fill="#38bdf8" opacity="0.6" />
+    <path d="M 35 10 L 50 10 L 75 65 L 60 65 Z" fill="#0284c7" opacity="0.5" />
+  </g>
+
+  <!-- Typography: UNITARY X -->
+  <text
+    x="200"
+    y="280"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="28"
+    font-weight="900"
+    letter-spacing="5"
+    fill="#0f172a"
+  >
+    UNITARY X
+  </text>
+
+  <!-- Tagline: WE DON'T COMPETE WE LEAD -->
+  <text
+    x="200"
+    y="304"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="9"
+    font-weight="700"
+    letter-spacing="2.5"
+    fill="#64748b"
+  >
+    WE DON'T COMPETE WE LEAD
+  </text>
+</svg>
