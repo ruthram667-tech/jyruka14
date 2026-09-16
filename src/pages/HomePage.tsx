@@ -223,8 +223,30 @@ export const HomePage: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {SERVICES_DATA.slice(0, 6).map((service) => (
-            <ServiceCard key={service.id} service={service} />
+          {SERVICES_DATA.slice(0, 6).map((service, idx) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              animate={{
+                y: [0, idx % 2 === 0 ? -4 : -6, 0],
+              }}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              transition={{
+                default: { duration: 0.4, delay: idx * 0.08 },
+                y: {
+                  duration: 4 + (idx % 3),
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                  delay: idx * 0.2
+                }
+              }}
+            >
+              <ServiceCard service={service} />
+            </motion.div>
           ))}
         </div>
       </section>
