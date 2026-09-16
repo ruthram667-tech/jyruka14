@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation, Outlet } from 'react-router-
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { PageTransition } from './components/common/PageTransition';
-import { WelcomeVoice } from './components/common/WelcomeVoice';
 import { AuthProvider } from './context/AuthContext';
 import { InquiryProvider } from './context/InquiryContext';
 import { AnalyticsProvider } from './context/AnalyticsContext';
@@ -61,7 +60,6 @@ export default function App() {
           <InquiryProvider>
             <EmployeeProvider>
               <ScrollToTop />
-              <WelcomeVoice />
               <Routes>
                 {/* Public showcase routes with Navbar and Footer */}
                 <Route element={<PublicLayout />}>
