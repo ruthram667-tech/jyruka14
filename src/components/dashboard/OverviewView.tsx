@@ -169,7 +169,14 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onNavigateTab }) => 
           </div>
 
           <div className="space-y-3">
-            {tasks.slice(0, 4).map((task) => (
+            {tasks.length === 0 ? (
+              <div className="p-8 text-center rounded-xl bg-black border border-zinc-800 text-xs text-zinc-500">
+                <Briefcase className="w-6 h-6 text-zinc-600 mx-auto mb-2 opacity-60" />
+                <p className="font-semibold text-zinc-400">No work assignments yet</p>
+                <p className="text-[11px] text-zinc-600 mt-0.5">Assigned work deliverables to staff will appear here.</p>
+              </div>
+            ) : (
+              tasks.slice(0, 4).map((task) => (
               <div
                 key={task.id}
                 className="p-4 rounded-xl bg-black border border-zinc-800 hover:border-zinc-700 transition-colors flex flex-col justify-between gap-2"
@@ -197,7 +204,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onNavigateTab }) => 
                   <span>Due: {task.dueDate}</span>
                 </div>
               </div>
-            ))}
+            )))}
           </div>
         </div>
 
@@ -217,7 +224,14 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onNavigateTab }) => 
           </div>
 
           <div className="space-y-3">
-            {inquiries.slice(0, 4).map((inq) => (
+            {inquiries.length === 0 ? (
+              <div className="p-8 text-center rounded-xl bg-black border border-zinc-800 text-xs text-zinc-500">
+                <Inbox className="w-6 h-6 text-zinc-600 mx-auto mb-2 opacity-60" />
+                <p className="font-semibold text-zinc-400">No client inquiries yet</p>
+                <p className="text-[11px] text-zinc-600 mt-0.5">Prospect inquiries submitted via public forms will appear here.</p>
+              </div>
+            ) : (
+              inquiries.slice(0, 4).map((inq) => (
               <div
                 key={inq.id}
                 onClick={() => onNavigateTab('inquiries')}
@@ -250,7 +264,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onNavigateTab }) => 
                   <span>{inq.createdAt.slice(0, 10)}</span>
                 </div>
               </div>
-            ))}
+            )))}
           </div>
         </div>
       </div>

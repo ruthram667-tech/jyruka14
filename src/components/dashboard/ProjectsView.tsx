@@ -28,7 +28,7 @@ export const ProjectsView: React.FC = () => {
             Client Projects & Sprints
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-            Active freelance squads, delivery schedules, milestones, and budget allocations.
+            Active website development squads, delivery schedules, milestones, and budget allocations.
           </p>
         </div>
 
@@ -50,7 +50,14 @@ export const ProjectsView: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {filtered.map((proj) => (
+        {filtered.length === 0 ? (
+          <div className="col-span-full p-12 text-center rounded-2xl bg-zinc-900/40 border border-zinc-800 text-zinc-400 text-xs">
+            <FolderKanban className="w-8 h-8 text-zinc-600 mx-auto mb-2" />
+            <p className="font-semibold text-white">No Client Projects Initialized</p>
+            <p className="text-zinc-500 mt-1">Client projects converted from inquiries or initialized by SuperAdmin will appear here.</p>
+          </div>
+        ) : (
+          filtered.map((proj) => (
           <div
             key={proj.id}
             className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-all space-y-5 shadow-xl shadow-black/30"
@@ -119,7 +126,7 @@ export const ProjectsView: React.FC = () => {
               <span className="text-amber-400 font-semibold">{proj.category}</span>
             </div>
           </div>
-        ))}
+        )))}
       </div>
     </div>
   );

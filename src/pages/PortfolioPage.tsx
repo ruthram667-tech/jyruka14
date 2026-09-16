@@ -20,17 +20,17 @@ export const PortfolioPage: React.FC = () => {
     <div className="pt-28 sm:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Page Header */}
       <section className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-950/40 border border-amber-500/30 text-amber-300 text-xs font-semibold">
-          <FolderGit2 className="w-3.5 h-3.5 text-amber-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold">
+          <FolderGit2 className="w-3.5 h-3.5 text-emerald-600" />
           <span>Proven Deliverables</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
           Work delivered by Jyruka squads.
         </h1>
 
-        <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
-          Explore client case studies across engineering, design systems, technical copy, and growth sprints. Click any card to inspect full metrics and deliverables.
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          Explore client case studies across website development, design systems, technical copy, and growth sprints. Click any card to inspect full metrics and deliverables.
         </p>
       </section>
 
@@ -40,10 +40,10 @@ export const PortfolioPage: React.FC = () => {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
+            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
               activeCategory === cat
-                ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold shadow-lg shadow-amber-500/20'
-                : 'bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800'
+                ? 'bg-slate-950 text-white font-bold shadow-md'
+                : 'bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50'
             }`}
           >
             {cat}

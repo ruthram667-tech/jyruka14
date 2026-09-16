@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
               <JyrukaLogo size="md" showSubtitle={true} />
             </Link>
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
-              The high-velocity freelance services startup connecting fast-moving founders with vetted senior engineering, design, marketing, and content squads.
+              The high-velocity website development platform connecting fast-moving founders with vetted senior engineering, design, marketing, and content squads.
             </p>
             
             {/* Direct Contact Badges */}
@@ -232,7 +232,7 @@ export const Footer: React.FC = () => {
                 className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-amber-400 transition-colors"
               >
                 <Shield className="w-3 h-3" />
-                <span>Internal Company Portal</span>
+                <span>SuperAdmin Portal</span>
               </Link>
             </div>
           </div>
@@ -240,10 +240,10 @@ export const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <p>© {new Date().getFullYear()} Jyruka Inc. All rights reserved. Vetted freelance services.</p>
+          <p>© {new Date().getFullYear()} Jyruka Inc. All rights reserved. Vetted website development.</p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1 text-zinc-400">
-              Built with precision for ambitious startups
+              Built with precision for ambitious businesses
             </span>
           </div>
         </div>

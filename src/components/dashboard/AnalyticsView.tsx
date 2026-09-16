@@ -73,7 +73,7 @@ export const AnalyticsView: React.FC = () => {
               {analytics.totalViews.toLocaleString()}
             </span>
             <span className="text-xs font-semibold text-emerald-400 flex items-center">
-              <ArrowUpRight className="w-3 h-3" /> +18.4%
+              <Activity className="w-3 h-3 mr-1" /> Live
             </span>
           </div>
           <p className="text-xs text-zinc-500 mt-1.5">
@@ -182,7 +182,14 @@ export const AnalyticsView: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-zinc-800/60">
-                {pageStatsArray.map((stat) => {
+                {pageStatsArray.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="py-8 text-center text-zinc-500">
+                      No page traffic recorded yet. Traffic will appear here as visitors browse your website.
+                    </td>
+                  </tr>
+                ) : (
+                  pageStatsArray.map((stat) => {
                   const sharePct =
                     analytics.totalViews > 0
                       ? Math.round((stat.views / analytics.totalViews) * 100)
@@ -220,7 +227,7 @@ export const AnalyticsView: React.FC = () => {
                       </td>
                     </tr>
                   );
-                })}
+                }))}
               </tbody>
             </table>
           </div>
@@ -243,7 +250,14 @@ export const AnalyticsView: React.FC = () => {
             </p>
 
             <div className="space-y-3">
-              {analytics.recentSessions.slice(0, 5).map((sess) => (
+              {analytics.recentSessions.length === 0 ? (
+                <div className="py-8 text-center text-zinc-500 text-xs">
+                  <Activity className="w-7 h-7 text-zinc-600 mx-auto mb-2 opacity-50" />
+                  <p className="font-semibold text-zinc-400">No visitor sessions logged yet</p>
+                  <p className="text-[11px] text-zinc-600 mt-1">Sessions will appear here in real-time as visitors navigate the site.</p>
+                </div>
+              ) : (
+                analytics.recentSessions.slice(0, 5).map((sess) => (
                 <div
                   key={sess.id}
                   className="p-3 rounded-xl bg-black/50 border border-zinc-800 flex items-center justify-between gap-3 text-xs"
@@ -269,7 +283,7 @@ export const AnalyticsView: React.FC = () => {
                     <div className="text-[10px] text-zinc-500">{sess.timestamp}</div>
                   </div>
                 </div>
-              ))}
+              )))}
             </div>
           </div>
 

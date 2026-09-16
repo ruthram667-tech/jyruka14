@@ -48,8 +48,8 @@ export const Navbar: React.FC = () => {
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/80 py-3 shadow-xl shadow-black/40'
-          : 'bg-transparent py-4.5 sm:py-5 border-b border-white/5'
+          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-3 shadow-md shadow-slate-900/5'
+          : 'bg-white/80 sm:bg-white/60 backdrop-blur-sm py-3.5 sm:py-4 border-b border-slate-200/60'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -60,11 +60,11 @@ export const Navbar: React.FC = () => {
           className="flex items-center group focus:outline-none"
           title="Jyruka Home"
         >
-          <JyrukaLogo size="md" showSubtitle={true} />
+          <JyrukaLogo size="md" showSubtitle={true} theme="light" />
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-1 bg-zinc-900/70 backdrop-blur-sm border border-zinc-800 rounded-full px-4 py-1.5 shadow-inner">
+        <nav className="hidden xl:flex items-center gap-1 bg-slate-100/90 backdrop-blur-sm border border-slate-200/80 rounded-full px-3 py-1 shadow-inner">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -72,10 +72,10 @@ export const Navbar: React.FC = () => {
                 key={link.name}
                 to={link.path}
                 id={`nav-link-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                className={`text-[13.5px] font-medium px-3.5 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${
+                className={`text-[13px] font-semibold px-3.5 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-black bg-gradient-to-r from-amber-500 to-yellow-400 font-bold shadow-sm shadow-amber-500/30'
-                    : 'text-zinc-300 hover:text-white hover:bg-zinc-800/70'
+                    ? 'text-white bg-slate-900 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
                 }`}
               >
                 {link.name}
@@ -89,10 +89,10 @@ export const Navbar: React.FC = () => {
           <a
             href={COMPANY_INFO.phoneHref}
             id="navbar-phone-btn"
-            className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-xs font-semibold text-zinc-300 hover:text-amber-400 hover:border-amber-500/40 transition-colors"
+            className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200/80 border border-slate-200 text-xs font-semibold text-slate-700 hover:text-slate-900 transition-colors"
             title="Call Jyruka Official"
           >
-            <Phone className="w-3.5 h-3.5 text-amber-400" />
+            <Phone className="w-3.5 h-3.5 text-emerald-600" />
             <span>{COMPANY_INFO.phone}</span>
           </a>
 
@@ -101,38 +101,38 @@ export const Navbar: React.FC = () => {
             target="_blank"
             rel="noreferrer"
             id="navbar-instagram-btn"
-            className="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-amber-400 hover:border-amber-500/40 flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 text-slate-600 hover:text-emerald-600 hover:border-emerald-300 flex items-center justify-center transition-colors"
             title={`Follow ${COMPANY_INFO.instagram.handle} on Instagram`}
           >
-            <Instagram className="w-4 h-4" />
+            <Instagram className="w-3.5 h-3.5" />
           </a>
 
           {isAuthenticated ? (
             <Link
               to="/dashboard"
               id="navbar-dashboard-btn"
-              className="flex items-center gap-2 bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 hover:text-white px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 shadow-sm"
+              className="flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 shadow-sm"
             >
-              <LayoutDashboard className="w-3.5 h-3.5 text-amber-400" />
-              <span>Owner Dashboard</span>
+              <LayoutDashboard className="w-3.5 h-3.5 text-emerald-600" />
+              <span>SuperAdmin</span>
             </Link>
           ) : (
             <Link
               to="/login"
               id="navbar-login-btn"
-              className="flex items-center gap-1 text-zinc-400 hover:text-white px-2.5 py-2 text-xs font-medium transition-colors"
+              className="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 px-2.5 py-1.5 text-xs font-medium transition-colors"
             >
-              <Shield className="w-3.5 h-3.5 text-zinc-400" />
-              <span>Login</span>
+              <Shield className="w-3.5 h-3.5 text-emerald-600" />
+              <span>SuperAdmin</span>
             </Link>
           )}
 
           <Link
             to="/contact"
             id="navbar-hire-cta"
-            className="flex items-center gap-1.5 bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black px-4 py-2 rounded-xl text-xs font-bold shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+            className="flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-full text-xs font-bold shadow-md shadow-slate-900/10 hover:shadow-slate-900/20 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
           >
-            <span>Hire a Squad</span>
+            <span>Start Website Project</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -141,7 +141,7 @@ export const Navbar: React.FC = () => {
         <button
           id="navbar-mobile-toggle"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="xl:hidden p-2 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-white focus:outline-none"
+          className="xl:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900 focus:outline-none"
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -150,7 +150,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-zinc-950/98 backdrop-blur-xl border-b border-zinc-800 px-5 pt-4 pb-6 mt-3 space-y-3 shadow-2xl animate-in slide-in-from-top duration-200">
+        <div className="xl:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 mt-2 space-y-3 shadow-2xl animate-in slide-in-from-top duration-200">
           <div className="grid grid-cols-2 gap-2">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -159,10 +159,10 @@ export const Navbar: React.FC = () => {
                   key={link.name}
                   to={link.path}
                   id={`mobile-nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  className={`text-sm font-medium px-3.5 py-2 rounded-lg transition-colors ${
+                  className={`text-sm font-semibold px-3 py-2.5 rounded-xl transition-colors flex items-center justify-center min-h-[44px] ${
                     isActive
-                      ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold'
-                      : 'text-zinc-300 hover:bg-zinc-900 hover:text-white'
+                      ? 'bg-slate-900 text-white font-bold shadow-sm'
+                      : 'text-slate-700 bg-slate-100 border border-slate-200/80 hover:bg-slate-200/80'
                   }`}
                 >
                   {link.name}
@@ -171,24 +171,24 @@ export const Navbar: React.FC = () => {
             })}
           </div>
 
-          <div className="pt-3 border-t border-zinc-800/80 flex flex-col gap-2.5">
+          <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
             {/* Quick Mobile Contact Links */}
             <div className="grid grid-cols-2 gap-2 text-xs">
               <a
                 href={COMPANY_INFO.phoneHref}
-                className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-200 hover:text-amber-400"
+                className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 font-semibold min-h-[44px]"
               >
-                <Phone className="w-3.5 h-3.5 text-amber-400" />
+                <Phone className="w-3.5 h-3.5 text-emerald-600" />
                 <span>{COMPANY_INFO.phone}</span>
               </a>
               <a
                 href={COMPANY_INFO.instagram.url}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-200 hover:text-amber-400"
+                className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 font-semibold min-h-[44px]"
               >
-                <Instagram className="w-3.5 h-3.5 text-amber-400" />
-                <span>{COMPANY_INFO.instagram.handle}</span>
+                <Instagram className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Instagram</span>
               </a>
             </div>
 
@@ -196,26 +196,26 @@ export const Navbar: React.FC = () => {
               <Link
                 to="/dashboard"
                 id="mobile-dashboard-link"
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-300 font-semibold text-sm"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 font-semibold text-sm min-h-[44px]"
               >
-                <LayoutDashboard className="w-4 h-4" />
-                <span>Open Owner Dashboard</span>
+                <LayoutDashboard className="w-4 h-4 text-emerald-600" />
+                <span>Open SuperAdmin Portal</span>
               </Link>
             ) : (
               <Link
                 to="/login"
                 id="mobile-login-link"
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-200 hover:text-white font-medium text-sm"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 font-medium text-sm min-h-[44px]"
               >
-                <Shield className="w-4 h-4 text-zinc-400" />
-                <span>Owner Login</span>
+                <Shield className="w-4 h-4 text-emerald-600" />
+                <span>SuperAdmin Login</span>
               </Link>
             )}
 
             <Link
               to="/contact"
               id="mobile-contact-link"
-              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold text-sm shadow-md"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-slate-900 text-white font-bold text-sm shadow-md min-h-[44px]"
             >
               <span>Get Started / Contact Us</span>
               <ArrowRight className="w-4 h-4" />

@@ -19,7 +19,18 @@ export const AnalyticsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [analytics, setAnalytics] = useState<TrafficAnalytics>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // If parsed data contains the old demo totalViews (>3000) or mock demo session IDs, clear it
+        if (
+          parsed.totalViews > 3000 ||
+          parsed.recentSessions?.some((s: any) => s.id === 'sess-841' || s.id === 'sess-840')
+        ) {
+          localStorage.removeItem(STORAGE_KEY);
+          return INITIAL_TRAFFIC_ANALYTICS;
+        }
+        return parsed;
+      }
     } catch (e) {
       console.warn('Failed to load analytics', e);
     }

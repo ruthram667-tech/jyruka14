@@ -17,7 +17,14 @@ export const InquiryProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [inquiries, setInquiries] = useState<Inquiry[]>(() => {
     try {
       const saved = localStorage.getItem('jyruka_inquiries');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.some((i: any) => i.id === 'inq-101' || i.clientEmail === 'sarah.j@prismhealth.io')) {
+          localStorage.removeItem('jyruka_inquiries');
+          return INITIAL_INQUIRIES;
+        }
+        return parsed;
+      }
     } catch (e) {
       console.warn('Storage error', e);
     }
@@ -27,7 +34,14 @@ export const InquiryProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [projects, setProjects] = useState<ProjectRecord[]>(() => {
     try {
       const saved = localStorage.getItem('jyruka_projects');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.some((p: any) => p.id === 'proj-01')) {
+          localStorage.removeItem('jyruka_projects');
+          return INITIAL_PROJECTS;
+        }
+        return parsed;
+      }
     } catch (e) {
       console.warn('Storage error', e);
     }

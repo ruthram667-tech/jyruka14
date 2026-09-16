@@ -19,7 +19,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'development',
     iconName: 'Code2',
     shortDesc: 'Production-ready web applications using modern React, TypeScript, Node.js, and cloud architectures.',
-    fullDesc: 'Rapidly scale your development pipeline with top-tier frontend and backend freelancers. From MVP development to complex microservices and custom dashboards.',
+    fullDesc: 'Rapidly scale your development pipeline with top-tier frontend and backend website development specialists. From MVP development to complex microservices and custom dashboards.',
     deliverables: ['React / Next.js Web Apps', 'Secure REST & GraphQL APIs', 'Database Architecture', 'Third-Party API Integrations', 'CI/CD & Cloud Deployment'],
     startingPrice: '$3,200',
     turnaroundTime: '2 - 4 weeks',
@@ -209,11 +209,11 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
 ];
 
 export const STATS_DATA = [
-  { label: 'Projects Delivered', value: 140, suffix: '+', description: 'Shipped on time and on budget' },
+  { label: 'Projects Delivered', value: 10, suffix: '+', description: 'Shipped on time and on budget' },
+  { label: 'Profit Generated', value: 50, suffix: 'k+', prefix: '$', description: 'Direct client profit & ROI delivered' },
   { label: 'Client Satisfaction', value: 98, suffix: '%', description: 'Based on post-sprint reviews' },
   { label: 'Talent Match Time', value: 48, suffix: 'h', description: 'From kickoff to squad deployment' },
-  { label: 'Vetted Specialists', value: 50, suffix: '+', description: 'Top 3% design & tech experts' },
-  { label: 'Client Value Generated', value: 12, suffix: 'M+', prefix: '$', description: 'In client funding & revenue' }
+  { label: 'Vetted Specialists', value: 50, suffix: '+', description: 'Top 3% design & tech experts' }
 ];
 
 export const TRUST_POINTS = [
@@ -254,7 +254,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: 'team-1',
     name: 'Julian Thorne',
     role: 'Founder & Managing Director',
-    bio: 'Former Engineering Director at scale-ups. Passionate about empowering modern companies with elastic, high-velocity freelance talent squads.',
+    bio: 'Former Engineering Director at scale-ups. Passionate about empowering modern companies with elastic, high-velocity website development squads.',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
     skills: ['Product Strategy', 'Systems Architecture', 'Agile Operations', 'Talent Curation'],
     status: 'Active',
@@ -342,7 +342,7 @@ export const HOW_IT_WORKS_STEPS: StepItem[] = [
     step: 2,
     title: 'Hand-Picked Squad Match',
     subtitle: 'Vetted talent matched precisely',
-    description: 'We match you with our senior freelance specialists whose domain expertise matches your tech stack. You meet the talent and approve the team before any work starts.',
+    description: 'We match you with our senior website development specialists whose domain expertise matches your tech stack. You meet the talent and approve the team before any work starts.',
     iconName: 'UserCheck',
     duration: 'Day 2 - 3'
   },
@@ -388,7 +388,7 @@ export const PRICING_TIERS: PricingTier[] = [
     recommended: true,
     price: 7800,
     period: 'month',
-    description: 'A cross-functional freelance dream team tailored to build, scale, and iterate on your core product continuously.',
+    description: 'A cross-functional website development dream team tailored to build, scale, and iterate on your core product continuously.',
     features: [
       '2 Senior Specialists (e.g. 1 Dev + 1 Designer/Marketer)',
       'Dedicated Jyruka Project Director',
@@ -421,8 +421,8 @@ export const PRICING_TIERS: PricingTier[] = [
 
 export const FAQS = [
   {
-    question: 'How is Jyruka different from standard freelance marketplaces?',
-    answer: 'Unlike open marketplaces where you must sift through hundreds of unvetted bids and manage freelancers yourself, Jyruka curates the top 3% of specialized talent and pairs every engagement with a dedicated Project Director. You get agency-level quality and accountability with the speed, transparency, and flexible rates of elite freelancing.'
+    question: 'How is Jyruka different from standard website development agencies?',
+    answer: 'Unlike traditional agencies laden with overhead and bureaucratic account managers, Jyruka curates the top 3% of specialized talent and pairs every engagement with a dedicated Project Director. You get enterprise-grade quality and accountability with the speed, transparency, and flexible rates of agile website development.'
   },
   {
     question: 'How fast can a Jyruka team start on our project?',
@@ -441,7 +441,7 @@ export const FAQS = [
     answer: 'We bill either by fixed-price sprint or monthly squad retainer. We hold sprint funds in milestone escrow, releasing payment upon your review and approval of the sprint deliverables.'
   },
   {
-    question: 'Can we hire the freelancer full-time later if we want?',
+    question: 'Can we hire the specialist full-time later if we want?',
     answer: 'Yes! We offer a smooth contract-to-hire transition pathway with fair buy-out terms once a mutually beneficial trial period has concluded.'
   }
 ];
@@ -449,17 +449,17 @@ export const FAQS = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'future-of-agile-freelancing',
-    title: 'Why High-Growth Startups Are Replacing Traditional Agencies with Managed Freelance Squads',
-    excerpt: 'Traditional agency retainers carry enormous overhead. Discover how modular, senior-only freelance squads allow founders to ship 3x faster while cutting costs by 45%.',
-    content: `For decades, startups faced a frustrating dilemma: hire slow, expensive traditional digital agencies laden with account managers, or spend weeks gambling on unvetted freelancers across chaotic open marketplaces.
+    title: 'Why High-Growth Companies Are Replacing Traditional Agencies with Managed Website Development Squads',
+    excerpt: 'Traditional agency retainers carry enormous overhead. Discover how modular, senior-only website development squads allow founders to ship 3x faster while cutting costs by 45%.',
+    content: `For decades, businesses faced a frustrating dilemma: hire slow, expensive traditional digital agencies laden with account managers, or spend weeks gambling on unvetted providers across chaotic open platforms.
 
-Jyruka was founded on a third path: the Managed Freelance Squad. By combining hand-vetted senior specialists with dedicated project direction, modern companies get the speed and precision of dedicated in-house talent without the hiring lag.
+Jyruka was founded on a third path: the Managed Website Development Squad. By combining hand-vetted senior specialists with dedicated project direction, modern companies get the speed and precision of dedicated in-house talent without the hiring lag.
 
 Key advantages include:
 1. Direct access to builders without layers of telephone games.
 2. Elastic scaling — add a 3D specialist for two weeks, then transition to a backend engineer.
 3. Transparent sprint milestones where you only pay for tangible, shippable outcomes.`,
-    category: 'Startup Strategy',
+    category: 'Website Development Strategy',
     readTime: '4 min read',
     date: 'Sep 12, 2025',
     author: {
@@ -511,239 +511,18 @@ Our engineering roster strictly adheres to the following principles:
   }
 ];
 
-export const INITIAL_INQUIRIES: Inquiry[] = [
-  {
-    id: 'inq-101',
-    clientName: 'Sarah Jenkins',
-    clientEmail: 'sarah.j@prismhealth.io',
-    companyName: 'Prism Health AI',
-    serviceCategory: 'Product & UI/UX Design',
-    budgetRange: '$5,000 - $10,000',
-    timeline: 'Within 2 weeks',
-    message: 'We are launching our AI patient triage tool next month and need an urgent 2-week design sprint to build the clinician dashboard in Figma.',
-    createdAt: '2025-09-14 14:22',
-    status: 'New',
-    priority: 'High'
-  },
-  {
-    id: 'inq-102',
-    clientName: 'David Kalu',
-    clientEmail: 'david@stratoscloud.tech',
-    companyName: 'Stratos Cloud',
-    serviceCategory: 'Full-Stack Web Engineering',
-    budgetRange: '$10,000 - $25,000',
-    timeline: '1 month',
-    message: 'Looking for 2 senior React + Node.js developers to accelerate our Kubernetes cluster telemetry portal. Need someone familiar with real-time WebSockets.',
-    createdAt: '2025-09-13 09:15',
-    status: 'Under Review',
-    priority: 'High'
-  },
-  {
-    id: 'inq-103',
-    clientName: 'Camila Rodriguez',
-    clientEmail: 'camila@bloomgrowth.co',
-    companyName: 'Bloom Growth Media',
-    serviceCategory: 'Growth & Performance Marketing',
-    budgetRange: '$2,500 - $5,000',
-    timeline: 'Flexible',
-    message: 'We want to test programmatic SEO for our B2B SaaS directory. Interested in a pilot sprint to validate query volumes.',
-    createdAt: '2025-09-11 17:40',
-    status: 'Contacted',
-    priority: 'Medium'
-  },
-  {
-    id: 'inq-104',
-    clientName: 'Arthur Pendelton',
-    clientEmail: 'arthur@pendelton-logistics.de',
-    companyName: 'Pendelton Logistics GmbH',
-    serviceCategory: 'Technical Writing & Copy',
-    budgetRange: '$5,000 - $10,000',
-    timeline: 'Within 3 weeks',
-    message: 'We need technical documentation and SDK developer guides written for our supply chain logistics API.',
-    createdAt: '2025-09-09 11:05',
-    status: 'Converted',
-    priority: 'Medium'
-  }
-];
+export const INITIAL_INQUIRIES: Inquiry[] = [];
 
-export const INITIAL_PROJECTS: ProjectRecord[] = [
-  {
-    id: 'proj-01',
-    title: 'Hydronix IoT Telemetry Cloud & Hardware Ingestion',
-    client: 'Hydronix Lab',
-    status: 'In Progress',
-    category: 'Development',
-    budget: 24500,
-    paid: 18000,
-    deadline: '2026-10-15',
-    progress: 82,
-    assignedTeam: ['Ruthram (SuperAdmin)', 'Alex Rivera']
-  },
-  {
-    id: 'proj-02',
-    title: 'AI Live Coach Web Speech Synthesis Engine',
-    client: 'Cognitive Education Lab',
-    status: 'In Review',
-    category: 'Development',
-    budget: 18500,
-    paid: 18500,
-    deadline: '2026-09-30',
-    progress: 95,
-    assignedTeam: ['Ruthram (SuperAdmin)', 'Maya Chen']
-  },
-  {
-    id: 'proj-03',
-    title: 'Newflex Inventory & Warehouse Tracking Core',
-    client: 'Newflex Enterprises',
-    status: 'In Progress',
-    category: 'Development',
-    budget: 18500,
-    paid: 12000,
-    deadline: '2026-10-05',
-    progress: 75,
-    assignedTeam: ['Jordan Vance', 'Liam Patel']
-  },
-  {
-    id: 'proj-04',
-    title: 'Engineering Calculator Suite v2 Algorithmic Tooling',
-    client: 'Engineering Systems Group',
-    status: 'Planning',
-    category: 'Development',
-    budget: 16000,
-    paid: 8000,
-    deadline: '2026-11-20',
-    progress: 35,
-    assignedTeam: ['Ruthram (SuperAdmin)']
-  }
-];
+export const INITIAL_PROJECTS: ProjectRecord[] = [];
 
-export const INITIAL_EMPLOYEES: EmployeeAccount[] = [
-  {
-    id: 'emp-001',
-    name: 'Alex Rivera',
-    email: 'alex.rivera@jyruka.com',
-    password: 'jyruka_alex',
-    role: 'Senior Full-Stack & IoT Engineer',
-    department: 'Engineering',
-    phone: '+91 94883 12041',
-    status: 'Active',
-    createdAt: '2026-01-10',
-    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80'
-  },
-  {
-    id: 'emp-002',
-    name: 'Maya Chen',
-    email: 'maya.chen@jyruka.com',
-    password: 'jyruka_maya',
-    role: 'AI / ML Solutions Specialist',
-    department: 'AI & Data',
-    phone: '+91 98421 88402',
-    status: 'Active',
-    createdAt: '2026-02-15',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80'
-  },
-  {
-    id: 'emp-003',
-    name: 'Jordan Vance',
-    email: 'jordan.vance@jyruka.com',
-    password: 'jyruka_jordan',
-    role: 'Lead UI/UX & Three.js Designer',
-    department: 'Design & Creative',
-    phone: '+91 97892 44319',
-    status: 'Active',
-    createdAt: '2026-03-01',
-    avatar: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=300&q=80'
-  },
-  {
-    id: 'emp-004',
-    name: 'Liam Patel',
-    email: 'liam.patel@jyruka.com',
-    password: 'jyruka_liam',
-    role: 'Technical Writer & Documentation Specialist',
-    department: 'Content & Strategy',
-    phone: '+91 94432 99120',
-    status: 'Active',
-    createdAt: '2026-03-20',
-    avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=300&q=80'
-  }
-];
+export const INITIAL_EMPLOYEES: EmployeeAccount[] = [];
 
-export const INITIAL_WORK_ASSIGNMENTS: WorkAssignment[] = [
-  {
-    id: 'task-101',
-    title: 'Implement AWS IoT Core MQTT Telemetry Sink for Hydronix',
-    description: 'Connect hardware sensor packets to AWS IoT Core topic streams, configure sub-second message serialization, and map metrics to PostgreSQL.',
-    assignedToEmployeeId: 'emp-001',
-    assignedToEmployeeName: 'Alex Rivera',
-    clientRequestId: 'inq-102',
-    clientName: 'Hydronix Sensing Lab',
-    priority: 'Urgent',
-    status: 'In Progress',
-    dueDate: '2026-09-22',
-    createdAt: '2026-09-14 10:30',
-    deliverableNotes: 'MQTT broker pipeline connected; benchmarking packet ingestion latency.',
-    tags: ['IoT', 'AWS IoT', 'MQTT', 'Python']
-  },
-  {
-    id: 'task-102',
-    title: 'Voice-to-Text Latency Optimization in AI Live Coach',
-    description: 'Fine-tune the browser Web Speech API event listeners and throttle phoneme feedback loops to maintain zero-perceived-latency tutoring responses.',
-    assignedToEmployeeId: 'emp-002',
-    assignedToEmployeeName: 'Maya Chen',
-    clientName: 'Cognitive Education Lab',
-    priority: 'High',
-    status: 'In Progress',
-    dueDate: '2026-09-25',
-    createdAt: '2026-09-12 14:15',
-    deliverableNotes: 'SpeechRecognition instances memoized with fallback on unsupported devices.',
-    tags: ['Speech API', 'AI', 'React', 'Audio']
-  },
-  {
-    id: 'task-103',
-    title: 'Implement Multi-Warehouse Stock Reorder Triggers for Newflex',
-    description: 'Configure automated webhook notifications and supplier PO generation when inventory items reach their minimum safety stock threshold.',
-    assignedToEmployeeId: 'emp-003',
-    assignedToEmployeeName: 'Jordan Vance',
-    clientName: 'Newflex Enterprises',
-    priority: 'High',
-    status: 'In Progress',
-    dueDate: '2026-09-24',
-    createdAt: '2026-09-12 09:00',
-    deliverableNotes: 'Stock replenishment thresholds tested, automated email & webhook dispatch operational.',
-    tags: ['Inventory', 'Webhooks', 'Automations', 'Database']
-  },
-  {
-    id: 'task-104',
-    title: 'Draft SDK Integration Guide for Engineering Calculator API',
-    description: 'Write complete API endpoint documentation, parameter definitions, and python/typescript quickstarts for the modular calculation suite.',
-    assignedToEmployeeId: 'emp-004',
-    assignedToEmployeeName: 'Liam Patel',
-    clientName: 'Engineering Systems Group',
-    priority: 'Medium',
-    status: 'Pending',
-    dueDate: '2026-09-29',
-    createdAt: '2026-09-15 11:20',
-    deliverableNotes: 'Drafting request/response schemas for formula validation endpoints.',
-    tags: ['Documentation', 'SDK', 'Python', 'Guides']
-  }
-];
+export const INITIAL_WORK_ASSIGNMENTS: WorkAssignment[] = [];
 
 export const INITIAL_TRAFFIC_ANALYTICS: TrafficAnalytics = {
-  totalViews: 3842,
-  totalDwellSeconds: 84210, // ~23 hours 23 mins
-  activeVisitorsNow: 7,
-  pageStats: {
-    '/': { path: '/', name: 'Homepage', views: 1845, totalDurationSeconds: 42100 },
-    '/services': { path: '/services', name: 'Services & Squads', views: 680, totalDurationSeconds: 15400 },
-    '/portfolio': { path: '/portfolio', name: 'Portfolio & Case Studies', views: 820, totalDurationSeconds: 19800 },
-    '/how-it-works': { path: '/how-it-works', name: 'How It Works', views: 245, totalDurationSeconds: 3800 },
-    '/contact': { path: '/contact', name: 'Contact & Sprint Inquiries', views: 252, totalDurationSeconds: 3110 }
-  },
-  recentSessions: [
-    { id: 'sess-841', page: '/portfolio', durationSeconds: 265, device: 'Desktop (Chrome)', timestamp: 'Just now' },
-    { id: 'sess-840', page: '/', durationSeconds: 182, device: 'Mobile (Safari)', timestamp: '2 mins ago' },
-    { id: 'sess-839', page: '/services', durationSeconds: 340, device: 'Desktop (Firefox)', timestamp: '5 mins ago' },
-    { id: 'sess-838', page: '/contact', durationSeconds: 145, device: 'Desktop (Chrome)', timestamp: '12 mins ago' },
-    { id: 'sess-837', page: '/', durationSeconds: 95, device: 'Mobile (Chrome)', timestamp: '18 mins ago' }
-  ]
+  totalViews: 0,
+  totalDwellSeconds: 0,
+  activeVisitorsNow: 1,
+  pageStats: {},
+  recentSessions: []
 };

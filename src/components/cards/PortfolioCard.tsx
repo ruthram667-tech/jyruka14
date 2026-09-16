@@ -56,67 +56,67 @@ export const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, onSelect }) 
         transformStyle: 'preserve-3d'
       }}
       id={`portfolio-card-${item.id}`}
-      className="group relative cursor-pointer rounded-2xl bg-zinc-900/60 border border-zinc-800/90 overflow-hidden shadow-xl shadow-black/40 hover:shadow-amber-500/10 hover:border-amber-500/50 transition-colors duration-300"
+      className="group relative cursor-pointer rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-emerald-950/5 hover:border-emerald-500/50 transition-colors duration-300"
     >
       {/* Cover Image with subtle zoom */}
-      <div className="relative h-56 sm:h-64 overflow-hidden bg-black">
+      <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-100">
         <img
           src={item.image}
           alt={item.title}
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95 group-hover:brightness-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
         {/* Top Badges */}
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/80 backdrop-blur-md border border-white/10 text-amber-300 shadow-sm">
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/90 backdrop-blur-md border border-slate-200/80 text-slate-900 shadow-sm">
             {item.category}
           </span>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-black/80 backdrop-blur-md border border-white/10 text-zinc-300">
-            <Users className="w-3.5 h-3.5 text-zinc-400" />
-            <span>{item.freelancerCount} Experts</span>
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-md border border-slate-200/80 text-slate-800">
+            <Users className="w-3.5 h-3.5 text-slate-600" />
+            <span>{item.freelancerCount} Specialists</span>
           </div>
         </div>
 
         {/* Floating open trigger button */}
-        <div className="absolute bottom-4 right-4 w-9 h-9 rounded-xl bg-amber-500 text-black flex items-center justify-center shadow-lg shadow-amber-500/30 transform transition-all duration-300 group-hover:scale-110 group-hover:bg-yellow-400">
+        <div className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-white text-slate-950 flex items-center justify-center shadow-lg shadow-slate-950/20 transform transition-all duration-300 group-hover:scale-110 group-hover:bg-slate-950 group-hover:text-white">
           <ArrowUpRight className="w-4 h-4 font-bold" />
         </div>
       </div>
 
       {/* Content Area */}
-      <div className="p-6">
-        <div className="text-xs font-semibold text-zinc-400 mb-1">
+      <div className="p-4 sm:p-6">
+        <div className="text-xs font-semibold text-slate-400 mb-1">
           {item.client} • {item.year}
         </div>
-        <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-1">
+        <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors line-clamp-1">
           {item.title}
         </h3>
-        <p className="mt-2 text-xs sm:text-sm text-zinc-400 line-clamp-2 leading-relaxed">
+        <p className="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-2 leading-relaxed">
           {item.summary}
         </p>
 
         {/* Primary metric badge */}
         {item.results[0] && (
-          <div className="mt-4 p-2.5 rounded-xl bg-amber-950/30 border border-amber-500/30 flex items-center gap-2 text-xs text-amber-300 font-medium">
-            <CheckCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+          <div className="mt-4 p-2.5 rounded-xl bg-emerald-50 border border-emerald-200/90 flex items-center gap-2 text-xs text-emerald-800 font-medium">
+            <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             <span className="truncate">{item.results[0]}</span>
           </div>
         )}
 
         {/* Tags */}
-        <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-zinc-800/80">
+        <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
           {item.tags.slice(0, 3).map((tag, idx) => (
             <span
               key={idx}
-              className="text-[11px] px-2.5 py-0.5 rounded-md bg-zinc-800/80 text-zinc-300 border border-zinc-700/60"
+              className="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200/80"
             >
               {tag}
             </span>
           ))}
           {item.tags.length > 3 && (
-            <span className="text-[11px] px-2 py-0.5 rounded-md bg-zinc-800/40 text-zinc-400">
+            <span className="text-[11px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-500">
               +{item.tags.length - 3}
             </span>
           )}

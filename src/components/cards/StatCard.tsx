@@ -49,22 +49,24 @@ export const StatCard: React.FC<StatCardProps> = ({
   return (
     <div
       ref={ref}
-      className={`p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/90 backdrop-blur-sm transition-all duration-300 hover:border-amber-500/40 hover:bg-zinc-900/80 shadow-lg shadow-black/30 ${className}`}
+      className={`p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm transition-all duration-300 hover:border-emerald-500/50 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between ${className}`}
     >
-      <div className="flex items-baseline gap-1 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-        {prefix && <span className="text-amber-400 text-2xl sm:text-3xl lg:text-4xl">{prefix}</span>}
-        <span className="font-sans tabular-nums text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-amber-200">
-          {count}
-        </span>
-        {suffix && <span className="text-amber-400 text-2xl sm:text-3xl lg:text-4xl font-semibold">{suffix}</span>}
+      <div>
+        <div className="flex items-baseline gap-0.5 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-950 tracking-tight flex-wrap">
+          {prefix && <span className="text-emerald-600 text-xl sm:text-2xl lg:text-3xl">{prefix}</span>}
+          <span className="font-sans tabular-nums text-slate-950">
+            {count}
+          </span>
+          {suffix && <span className="text-emerald-600 text-xl sm:text-2xl lg:text-3xl font-bold">{suffix}</span>}
+        </div>
+
+        <h3 className="mt-2 text-xs sm:text-sm lg:text-base font-bold text-slate-900 leading-snug">
+          {label}
+        </h3>
       </div>
 
-      <h3 className="mt-2 text-sm sm:text-base font-semibold text-zinc-200">
-        {label}
-      </h3>
-
       {description && (
-        <p className="mt-1 text-xs text-zinc-400 leading-relaxed">
+        <p className="mt-1.5 text-[11px] sm:text-xs text-slate-500 leading-relaxed">
           {description}
         </p>
       )}

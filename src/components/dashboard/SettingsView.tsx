@@ -25,8 +25,11 @@ export const SettingsView: React.FC = () => {
 
   const handleResetDemoData = () => {
     try {
-      localStorage.setItem('jyruka_inquiries', JSON.stringify(INITIAL_INQUIRIES));
-      localStorage.setItem('jyruka_projects', JSON.stringify(INITIAL_PROJECTS));
+      localStorage.removeItem('jyruka_inquiries');
+      localStorage.removeItem('jyruka_projects');
+      localStorage.removeItem('jyruka_employees');
+      localStorage.removeItem('jyruka_tasks');
+      localStorage.removeItem('jyruka_traffic_analytics');
       setResetSuccess(true);
       setTimeout(() => {
         window.location.reload();
@@ -50,7 +53,7 @@ export const SettingsView: React.FC = () => {
       {resetSuccess && (
         <div className="p-4 rounded-xl bg-amber-950/60 border border-amber-800/80 text-xs text-amber-300 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-amber-400" />
-          <span>Demo inquiries and project records successfully restored to defaults! Reloading...</span>
+          <span>All local activity cleared. Fresh launch state loaded! Reloading...</span>
         </div>
       )}
 
@@ -189,21 +192,21 @@ export const SettingsView: React.FC = () => {
         </div>
       </div>
 
-      {/* Demo Reset */}
+      {/* Reset Data */}
       <div className="p-6 rounded-2xl bg-zinc-900/60 border border-rose-900/30 space-y-3 shadow-xl shadow-black/30">
         <div className="flex items-center gap-2 text-rose-300 font-bold text-base">
           <RefreshCw className="w-5 h-5 text-rose-400" />
-          <span>Reset Demo Environment</span>
+          <span>Fresh Launch Reset</span>
         </div>
         <p className="text-xs text-zinc-400 leading-relaxed">
-          Restore initial seeded inquiries and project progress data to start with a fresh testing state.
+          Clear all client inquiries, assignments, and temporary records to maintain a clean freshly launched state.
         </p>
         <button
           onClick={handleResetDemoData}
           className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold flex items-center gap-2 transition-colors shadow-md shadow-rose-600/20"
         >
           <RefreshCw className="w-3.5 h-3.5" />
-          <span>Reset Sample Inquiries & Data</span>
+          <span>Reset to Fresh State</span>
         </button>
       </div>
     </div>

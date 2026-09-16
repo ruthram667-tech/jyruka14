@@ -23,7 +23,14 @@ export const EmployeeProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [employees, setEmployees] = useState<EmployeeAccount[]>(() => {
     try {
       const saved = localStorage.getItem(EMPLOYEES_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.some((e: any) => e.id === 'emp-001' || e.email === 'alex.rivera@jyruka.com')) {
+          localStorage.removeItem(EMPLOYEES_KEY);
+          return INITIAL_EMPLOYEES;
+        }
+        return parsed;
+      }
     } catch (e) {
       console.warn('Failed to load employees', e);
     }
@@ -33,7 +40,14 @@ export const EmployeeProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [tasks, setTasks] = useState<WorkAssignment[]>(() => {
     try {
       const saved = localStorage.getItem(TASKS_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.some((t: any) => t.id === 'task-101' || t.id === 'task-102')) {
+          localStorage.removeItem(TASKS_KEY);
+          return INITIAL_WORK_ASSIGNMENTS;
+        }
+        return parsed;
+      }
     } catch (e) {
       console.warn('Failed to load tasks', e);
     }

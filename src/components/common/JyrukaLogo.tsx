@@ -5,6 +5,7 @@ interface JyrukaLogoProps {
   variant?: 'full' | 'icon' | 'text';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   showSubtitle?: boolean;
+  theme?: 'light' | 'dark';
 }
 
 export const JyrukaLogo: React.FC<JyrukaLogoProps> = ({
@@ -12,6 +13,7 @@ export const JyrukaLogo: React.FC<JyrukaLogoProps> = ({
   variant = 'full',
   size = 'md',
   showSubtitle = false,
+  theme = 'light',
 }) => {
   // Dimension presets
   const dimensions = {
@@ -177,13 +179,14 @@ export const JyrukaLogo: React.FC<JyrukaLogoProps> = ({
         <div className="flex flex-col justify-center">
           <div className="flex items-center">
             <span
-              className="font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-400 font-serif drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+              className={`font-extrabold tracking-tight font-serif ${
+                theme === 'dark' ? 'text-white' : 'text-slate-950'
+              }`}
               style={{
                 fontSize: `${dimensions.fontSize}px`,
                 letterSpacing: '-0.02em',
                 lineHeight: 1.1,
                 fontFamily: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-                textShadow: '0 3px 6px rgba(0,0,0,0.8), 0 1px 2px rgba(255,255,255,0.2)'
               }}
             >
               Jyruka
@@ -191,8 +194,8 @@ export const JyrukaLogo: React.FC<JyrukaLogoProps> = ({
           </div>
 
           {showSubtitle && (
-            <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-amber-400/90 -mt-0.5">
-              Official Startup
+            <span className="text-[10px] uppercase font-bold tracking-[0.16em] text-emerald-600 dark:text-amber-400 -mt-0.5">
+              Website Development
             </span>
           )}
         </div>

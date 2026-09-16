@@ -49,7 +49,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const cleanEmail = email.trim().toLowerCase();
     const cleanPass = pass.trim();
 
-    // 1. Check SuperAdmin credentials
+    // Only SuperAdmin credentials are authorized
     if (SUPERADMIN_EMAILS.includes(cleanEmail) && cleanPass === SUPERADMIN_PASS) {
       const superAdminUser: AuthUser = {
         id: 'superadmin-ruthram',
@@ -73,44 +73,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return { success: true };
     }
 
-    // 2. Check if an Employee account matches
-    try {
-      const savedEmployees = localStorage.getItem('jyruka_employees');
-      if (savedEmployees) {
-        const employeesList = JSON.parse(savedEmployees);
-        const matchedEmp = employeesList.find(
-          (emp: any) =>
-            emp.email.trim().toLowerCase() === cleanEmail &&
-            emp.password === cleanPass
-        );
-
-        if (matchedEmp) {
-          const employeeUser: AuthUser = {
-            id: matchedEmp.id,
-            name: matchedEmp.name,
-            email: matchedEmp.email,
-            role: matchedEmp.role,
-            avatar: matchedEmp.avatar || '/jyruka-logo.png',
-            userType: 'employee',
-            employeeId: matchedEmp.id
-          };
-
-          setIsAuthenticated(true);
-          setUser(employeeUser);
-
-          localStorage.setItem('jyruka_auth', 'true');
-          localStorage.setItem('jyruka_active_user', JSON.stringify(employeeUser));
-
-          return { success: true };
-        }
-      }
-    } catch (e) {
-      console.warn('Error verifying employee credentials', e);
-    }
-
     return {
       success: false,
-      message: 'Invalid credentials. Please enter your authorized email and password.'
+      message: 'Access restricted. Only authorized SuperAdmin credentials may log in.'
     };
   };
 

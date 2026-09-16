@@ -10,9 +10,9 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
   return (
     <div
       id={`testimonial-${testimonial.id}`}
-      className="p-7 rounded-2xl bg-zinc-900/60 border border-zinc-800/90 backdrop-blur-sm flex flex-col justify-between hover:border-amber-500/40 transition-all duration-300 relative group shadow-lg shadow-black/30"
+      className="p-5 sm:p-7 rounded-2xl bg-white border border-slate-200/90 flex flex-col justify-between hover:border-emerald-500/40 hover:shadow-lg transition-all duration-300 relative group shadow-sm"
     >
-      <div className="absolute top-6 right-6 text-amber-500/15 group-hover:text-amber-500/25 transition-colors pointer-events-none">
+      <div className="absolute top-6 right-6 text-emerald-600/10 group-hover:text-emerald-600/20 transition-colors pointer-events-none">
         <Quote className="w-10 h-10" />
       </div>
 
@@ -22,31 +22,31 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
           {[...Array(testimonial.rating)].map((_, i) => (
             <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
           ))}
-          <span className="ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700/60 text-amber-300">
+          <span className="ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800">
             {testimonial.projectCategory}
           </span>
         </div>
 
         {/* Content */}
-        <p className="text-zinc-300 text-sm sm:text-base leading-relaxed italic">
+        <p className="text-slate-700 text-sm sm:text-base leading-relaxed italic">
           "{testimonial.content}"
         </p>
       </div>
 
       {/* Author details */}
-      <div className="mt-6 pt-5 border-t border-zinc-800/80 flex items-center gap-3.5">
+      <div className="mt-6 pt-5 border-t border-slate-100 flex items-center gap-3.5">
         <img
           src={testimonial.avatar}
           alt={testimonial.name}
           referrerPolicy="no-referrer"
-          className="w-11 h-11 rounded-full object-cover border border-amber-500/40"
+          className="w-11 h-11 rounded-full object-cover border border-emerald-300/80"
         />
         <div>
-          <h4 className="text-sm font-bold text-white tracking-tight">
+          <h4 className="text-sm font-bold text-slate-900 tracking-tight">
             {testimonial.name}
           </h4>
-          <p className="text-xs text-zinc-400">
-            {testimonial.role}, <span className="text-zinc-300">{testimonial.company}</span>
+          <p className="text-xs text-slate-500">
+            {testimonial.role}, <span className="text-slate-700 font-medium">{testimonial.company}</span>
           </p>
         </div>
       </div>

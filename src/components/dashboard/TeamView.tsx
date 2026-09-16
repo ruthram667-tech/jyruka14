@@ -170,7 +170,22 @@ export const TeamView: React.FC = () => {
 
       {/* Employees Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredEmployees.map((emp) => {
+        {filteredEmployees.length === 0 ? (
+          <div className="col-span-full p-12 text-center rounded-2xl bg-zinc-900/40 border border-zinc-800 text-zinc-400">
+            <Users2 className="w-10 h-10 text-zinc-600 mx-auto mb-3" />
+            <h3 className="text-base font-bold text-white">No Employee Accounts Registered</h3>
+            <p className="text-xs text-zinc-400 max-w-sm mx-auto mt-1">
+              No employee accounts exist yet. As SuperAdmin, use the "Add Employee Account" button to add team members and assign work.
+            </p>
+            <button
+              onClick={() => setIsAddModalOpen(true)}
+              className="mt-4 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-black text-xs font-bold transition-colors cursor-pointer"
+            >
+              Add First Employee
+            </button>
+          </div>
+        ) : (
+          filteredEmployees.map((emp) => {
           const empTasks = tasks.filter((t) => t.assignedToEmployeeId === emp.id);
           const activeTasks = empTasks.filter((t) => t.status === 'In Progress' || t.status === 'Pending');
           const isPassVisible = visiblePasswords[emp.id];
@@ -302,7 +317,7 @@ export const TeamView: React.FC = () => {
               </div>
             </div>
           );
-        })}
+        }))}
       </div>
 
       {/* Add Employee Modal */}

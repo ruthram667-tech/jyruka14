@@ -36,9 +36,9 @@ function PublicLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 flex flex-col selection:bg-amber-500 selection:text-black">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-full">
       <Navbar />
-      <div className="flex-1">
+      <div className="flex-1 w-full max-w-full">
         <PageTransition key={location.pathname}>
           <Outlet />
         </PageTransition>
