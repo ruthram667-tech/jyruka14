@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import {
   ShieldCheck,
@@ -12,12 +12,44 @@ import {
   Users2,
   MapPin,
   Phone,
-  Mail
+  Mail,
+  Camera,
+  Upload,
+  CheckCircle2
 } from 'lucide-react';
 import { TEAM_MEMBERS, COLLABORATOR_COMPANY } from '../data/mockData';
 import { COMPANY_INFO } from '../data/companyInfo';
+import { useFounderAvatar } from '../utils/avatarStorage';
 
 export const AboutPage: React.FC = () => {
+  const [founderAvatar, updateFounderAvatar, isUpdatingAvatar] = useFounderAvatar();
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const ok = await updateFounderAvatar(file);
+      if (ok) {
+        setUploadSuccess(true);
+        setTimeout(() => setUploadSuccess(false), 4000);
+      }
+    }
+  };
+
+  const handleDrop = async (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      const ok = await updateFounderAvatar(file);
+      if (ok) {
+        setUploadSuccess(true);
+        setTimeout(() => setUploadSuccess(false), 4000);
+      }
+    }
+  };
   const values = [
     {
       title: 'Craft Over Volume',
@@ -42,45 +74,50 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-28 sm:pt-36 pb-20 space-y-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Hero: Story, Mission & Vision */}
-      <section className="text-center max-w-3xl mx-auto space-y-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold">
-          <Users2 className="w-3.5 h-3.5 text-emerald-600" />
-          <span>The Jyruka Origin & Mission</span>
-        </div>
+    <div className="relative overflow-hidden">
+      {/* Ambient Top Glow matching brand look */}
+      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-[#e8fbf2]/90 via-[#f4fcf7]/60 to-transparent pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-emerald-300/20 blur-[130px] pointer-events-none" />
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          Rewriting how high-growth companies build with website development teams.
-        </h1>
-
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-          Jyruka was founded with a singular conviction: the traditional digital agency model is broken, and unvetted open marketplaces are chaotic. We built the high-velocity middle ground.
-        </p>
-      </section>
-
-      {/* Story & Mission Cards */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-        <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center">
-            <Target className="w-6 h-6" />
+      <div className="relative z-10 pt-28 sm:pt-36 pb-20 space-y-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero: Story, Mission & Vision */}
+        <section className="text-center max-w-3xl mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold shadow-sm">
+            <Users2 className="w-3.5 h-3.5 text-emerald-600" />
+            <span>The Jyruka Origin & Mission</span>
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Our Mission</h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            To empower founders, product teams, and visionaries to ship high-impact digital products by instantly plugging in vetted, self-sufficient website development squads without the friction, delays, or bureaucracy of traditional hiring.
-          </p>
-        </div>
 
-        <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
-          <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center">
-            <Eye className="w-6 h-6" />
-          </div>
-          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Our Vision</h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A future where every ambitious company operates with an elastic technical & creative bench — deploying specialized website development squads for 2-week sprints as effortlessly as spinning up cloud servers.
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Rewriting how high-growth companies build with high-velocity technology squads.
+          </h1>
+
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            Jyruka was founded with a singular conviction: the traditional digital agency model is broken, and unvetted open marketplaces are chaotic. We built the high-velocity middle ground.
           </p>
-        </div>
-      </section>
+        </section>
+
+        {/* Story & Mission Cards */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center">
+              <Target className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Our Mission</h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              To empower founders, product teams, and visionaries to ship high-impact digital products by instantly plugging in vetted, self-sufficient technology and engineering squads without the friction, delays, or bureaucracy of traditional hiring.
+            </p>
+          </div>
+
+          <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200 space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center">
+              <Eye className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Our Vision</h2>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              A future where every ambitious company operates with an elastic technical & creative bench — deploying specialized technology squads for 2-week sprints as effortlessly as spinning up cloud servers.
+            </p>
+          </div>
+        </section>
 
       {/* Core Values */}
       <section className="space-y-12">
@@ -142,32 +179,81 @@ export const AboutPage: React.FC = () => {
               className="relative rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:border-emerald-500/50 hover:shadow-xl transition-all flex flex-col justify-between"
             >
               <div>
-                {/* Photo Header */}
-                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-slate-900 flex items-center justify-center">
+                {/* Hidden File Input */}
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                  accept="image/*"
+                  className="hidden"
+                />
+
+                {/* Photo Header with Drag & Drop */}
+                <div
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setIsDragOver(true);
+                  }}
+                  onDragLeave={() => setIsDragOver(false)}
+                  onDrop={handleDrop}
+                  className={`relative h-80 sm:h-96 w-full overflow-hidden bg-slate-900 flex items-center justify-center transition-all ${
+                    isDragOver ? 'ring-4 ring-emerald-500 ring-inset' : ''
+                  }`}
+                >
                   <img
-                    src={member.avatar}
+                    src={founderAvatar}
                     alt={member.name}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover object-[center_15%] transition-transform duration-500 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                  {/* Subtle bottom gradient to keep photo bright while making text readable */}
+                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
 
-                  {/* Badges */}
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-600/90 backdrop-blur-md text-white text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                  {/* Badges & Actions */}
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-600/95 backdrop-blur-md text-white text-xs font-bold flex items-center gap-1.5 shadow-sm">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>Founder</span>
                   </div>
 
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 flex items-center gap-1 text-xs text-amber-500 font-bold shadow-sm">
-                    <Star className="w-3.5 h-3.5 fill-amber-400" />
-                    <span>{member.rating.toFixed(1)}</span>
+                  <div className="absolute top-4 right-4 flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      disabled={isUpdatingAvatar}
+                      title="Upload high quality photo"
+                      className="px-3 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-900 backdrop-blur-md border border-white/20 text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-md active:scale-95 cursor-pointer"
+                    >
+                      <Camera className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{isUpdatingAvatar ? 'Saving...' : 'Update Photo'}</span>
+                    </button>
+
+                    <div className="px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 flex items-center gap-1 text-xs text-amber-500 font-bold shadow-sm">
+                      <Star className="w-3.5 h-3.5 fill-amber-400" />
+                      <span>{member.rating.toFixed(1)}</span>
+                    </div>
                   </div>
 
-                  <div className="absolute bottom-4 left-6 right-6 text-white">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                  {/* Drag-and-drop feedback overlay */}
+                  {isDragOver && (
+                    <div className="absolute inset-0 bg-emerald-900/80 backdrop-blur-sm flex flex-col items-center justify-center text-white z-20 pointer-events-none">
+                      <Upload className="w-10 h-10 mb-2 animate-bounce" />
+                      <p className="text-sm font-bold">Drop your high-quality photo here</p>
+                    </div>
+                  )}
+
+                  {/* Success Toast */}
+                  {uploadSuccess && (
+                    <div className="absolute top-16 left-1/2 -translate-x-1/2 px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold flex items-center gap-2 shadow-lg z-20 animate-fade-in">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-200" />
+                      <span>Photo updated in high quality!</span>
+                    </div>
+                  )}
+
+                  <div className="absolute bottom-4 left-6 right-6 text-white z-10">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight drop-shadow-sm">
                       {member.name}
                     </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-emerald-400 mt-0.5">
+                    <p className="text-xs sm:text-sm font-semibold text-emerald-300 mt-0.5 drop-shadow-sm">
                       {member.role}
                     </p>
                   </div>
@@ -298,7 +384,7 @@ export const AboutPage: React.FC = () => {
               {COMPANY_INFO.address}
             </p>
             <p className="text-xs text-slate-500">
-              Coordinating distributed senior website development squads, rapid sprint delivery, and client partnerships worldwide.
+              Coordinating distributed senior engineering and technology squads, rapid sprint delivery, and client partnerships worldwide.
             </p>
           </div>
 
@@ -320,6 +406,7 @@ export const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 };

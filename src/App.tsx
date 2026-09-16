@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation, Outlet } from 'react-router-
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { PageTransition } from './components/common/PageTransition';
+import { WelcomeVoice } from './components/common/WelcomeVoice';
 import { AuthProvider } from './context/AuthContext';
 import { InquiryProvider } from './context/InquiryContext';
 import { AnalyticsProvider } from './context/AnalyticsContext';
@@ -36,9 +37,13 @@ function PublicLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-full">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white overflow-x-hidden w-full max-w-full relative">
+      {/* Top ambient mint/greenish atmosphere matching brand aesthetic across all pages */}
+      <div className="absolute top-0 left-0 right-0 h-[540px] bg-gradient-to-b from-[#e8fbf2] via-[#f1faf5]/75 to-transparent pointer-events-none z-0" />
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[400px] bg-emerald-300/20 blur-[140px] pointer-events-none z-0" />
+
       <Navbar />
-      <div className="flex-1 w-full max-w-full">
+      <div className="flex-1 w-full max-w-full relative z-10">
         <PageTransition key={location.pathname}>
           <Outlet />
         </PageTransition>
@@ -56,6 +61,7 @@ export default function App() {
           <InquiryProvider>
             <EmployeeProvider>
               <ScrollToTop />
+              <WelcomeVoice />
               <Routes>
                 {/* Public showcase routes with Navbar and Footer */}
                 <Route element={<PublicLayout />}>

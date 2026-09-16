@@ -21,7 +21,7 @@ export interface CompanyInfo {
 
 export const COMPANY_INFO: CompanyInfo = {
   name: 'Jyruka',
-  tagline: 'High-Velocity Website Development Squads & Digital Solutions',
+  tagline: 'High-Velocity Technologies & Digital Engineering Solutions',
   description:
     'Jyruka connects fast-moving founders and enterprises with vetted senior engineering, UI/UX design, growth marketing, and automation squads.',
   email: 'jyrukaofficial@gmail.com',

@@ -27,7 +27,6 @@ export const ContactPage: React.FC = () => {
   const [clientEmail, setClientEmail] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [serviceCategory, setServiceCategory] = useState('Product & UI/UX Design');
-  const [budgetRange, setBudgetRange] = useState('$5,000 - $10,000');
   const [timeline, setTimeline] = useState('Within 2 weeks');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -52,7 +51,7 @@ export const ContactPage: React.FC = () => {
       clientEmail: clientEmail.trim(),
       companyName: companyName.trim() || undefined,
       serviceCategory,
-      budgetRange,
+      budgetRange: 'Direct consultation',
       timeline,
       message: message.trim()
     });
@@ -71,22 +70,27 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-28 sm:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Header */}
-      <section className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold">
-          <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-          <span>Sprint Discovery Kickoff</span>
-        </div>
+    <div className="relative overflow-hidden">
+      {/* Ambient Top Glow matching brand look */}
+      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-[#e8fbf2]/90 via-[#f4fcf7]/60 to-transparent pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-emerald-300/20 blur-[130px] pointer-events-none" />
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          Let's assemble your dream squad.
-        </h1>
+      <div className="relative z-10 pt-28 sm:pt-36 pb-20 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <section className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold shadow-sm">
+            <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Sprint Discovery Kickoff</span>
+          </div>
 
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-          Tell us about your product roadmap, tech stack, or creative goals. We review requirements and match vetted website development specialists within 48 hours.
-        </p>
-      </section>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Let's assemble your dream squad.
+          </h1>
+
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            Tell us about your product roadmap, tech stack, or creative goals. We review requirements and match vetted engineering specialists within 48 hours.
+          </p>
+        </section>
 
       {/* Main Grid: Form + Info Sidebar */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -190,40 +194,21 @@ export const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Anticipated Budget Range
-                  </label>
-                  <select
-                    id="contact-budget"
-                    value={budgetRange}
-                    onChange={(e) => setBudgetRange(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 text-sm text-slate-900 rounded-xl px-4 py-2.5 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors"
-                  >
-                    <option value="$2,500 - $5,000">$2,500 - $5,000 (Single Sprint)</option>
-                    <option value="$5,000 - $10,000">$5,000 - $10,000 (Standard Sprint)</option>
-                    <option value="$10,000 - $25,000">$10,000 - $25,000 (Managed Squad)</option>
-                    <option value="$25,000+">$25,000+ (Custom Studio)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Target Kickoff Timeline
-                  </label>
-                  <select
-                    id="contact-timeline"
-                    value={timeline}
-                    onChange={(e) => setTimeline(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 text-sm text-slate-900 rounded-xl px-4 py-2.5 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors"
-                  >
-                    <option value="Immediately (Within 48 hours)">Immediately (Within 48 hours)</option>
-                    <option value="Within 2 weeks">Within 2 weeks</option>
-                    <option value="Next month">Next month</option>
-                    <option value="Exploring for future quarter">Exploring for future quarter</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Target Kickoff Timeline
+                </label>
+                <select
+                  id="contact-timeline"
+                  value={timeline}
+                  onChange={(e) => setTimeline(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-200 text-sm text-slate-900 rounded-xl px-4 py-2.5 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors"
+                >
+                  <option value="Immediately (Within 48 hours)">Immediately (Within 48 hours)</option>
+                  <option value="Within 2 weeks">Within 2 weeks</option>
+                  <option value="Next month">Next month</option>
+                  <option value="Exploring for future quarter">Exploring for future quarter</option>
+                </select>
               </div>
 
               <div>
@@ -390,7 +375,7 @@ export const ContactPage: React.FC = () => {
           <div className="p-6 rounded-3xl bg-emerald-50/70 border border-emerald-200 text-xs text-slate-700 space-y-2">
             <h4 className="font-bold text-slate-900 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Are you a senior website development specialist?</span>
+              <span>Are you a senior technology specialist?</span>
             </h4>
             <p className="text-slate-600 leading-relaxed">
               We continually screen senior designers, full-stack engineers, and marketing strategists for our client squads.
@@ -404,6 +389,7 @@ export const ContactPage: React.FC = () => {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

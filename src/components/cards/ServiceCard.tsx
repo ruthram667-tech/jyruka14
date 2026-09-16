@@ -71,24 +71,20 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, detailed = fa
         </div>
       </div>
 
-      {/* Footer info: Starting Price & Turnaround */}
+      {/* Footer info: Delivery Turnaround & Action */}
       <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-        <div className="flex flex-col">
-          <span className="text-[11px] text-slate-400">Starting from</span>
-          <span className="font-bold text-slate-900 text-sm">{service.startingPrice}</span>
-        </div>
-
-        <div className="flex items-center gap-1.5 text-slate-500">
-          <Clock className="w-3.5 h-3.5 text-slate-400" />
-          <span>{service.turnaroundTime}</span>
+        <div className="flex items-center gap-1.5 text-slate-600 font-medium">
+          <Clock className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+          <span>{service.turnaroundTime} turnaround</span>
         </div>
 
         <Link
           to={`/contact?service=${encodeURIComponent(service.title)}`}
-          className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900 transition-colors"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-800 text-xs font-semibold transition-all group/btn shadow-xs"
           title={`Inquire about ${service.title}`}
         >
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+          <span>Get Started</span>
+          <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5" />
         </Link>
       </div>
     </div>

@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
               <JyrukaLogo size="md" showSubtitle={true} />
             </Link>
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
-              The high-velocity website development platform connecting fast-moving founders with vetted senior engineering, design, marketing, and content squads.
+              The high-velocity technologies and software platform connecting fast-moving founders with vetted senior engineering, design, marketing, and content squads.
             </p>
             
             {/* Direct Contact Badges */}
@@ -240,7 +240,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <p>© {new Date().getFullYear()} Jyruka Inc. All rights reserved. Vetted website development.</p>
+          <p>© {new Date().getFullYear()} Jyruka Technologies. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1 text-zinc-400">
               Built with precision for ambitious businesses

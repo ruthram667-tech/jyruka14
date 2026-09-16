@@ -195,7 +195,7 @@ export const JyrukaLogo: React.FC<JyrukaLogoProps> = ({
 
           {showSubtitle && (
             <span className="text-[10px] uppercase font-bold tracking-[0.16em] text-emerald-600 dark:text-amber-400 -mt-0.5">
-              Website Development
+              Technologies
             </span>
           )}
         </div>

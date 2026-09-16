@@ -373,8 +373,8 @@ export const PRICING_TIERS: PricingTier[] = [
 
 export const FAQS = [
   {
-    question: 'How is Jyruka different from standard website development agencies?',
-    answer: 'Unlike traditional agencies laden with overhead and bureaucratic account managers, Jyruka curates the top 3% of specialized talent and pairs every engagement with a dedicated Project Director. You get enterprise-grade quality and accountability with the speed, transparency, and flexible rates of agile website development.'
+    question: 'How is Jyruka different from standard technology agencies?',
+    answer: 'Unlike traditional agencies laden with overhead and bureaucratic account managers, Jyruka curates the top 3% of specialized talent and pairs every engagement with a dedicated Project Director. You get enterprise-grade quality and accountability with the speed, transparency, and agility of modern technology squads.'
   },
   {
     question: 'How fast can a Jyruka team start on our project?',

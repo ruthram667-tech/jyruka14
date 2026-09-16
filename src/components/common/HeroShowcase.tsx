@@ -84,13 +84,13 @@ export const HeroShowcase: React.FC = () => {
         </div>
 
         <div className="p-3 rounded-xl bg-black/60 border border-zinc-800">
-          <div className="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 tabular-nums">
-            $50<span className="text-amber-400 font-bold">k+</span>
+          <div className="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-400 tabular-nums">
+            99<span className="text-emerald-400 font-bold">%</span>
           </div>
           <div className="text-[11px] sm:text-xs font-medium text-zinc-300 mt-0.5">
-            Profit Generated
+            Client Satisfaction
           </div>
-          <div className="text-[10px] text-zinc-500">Client ROI delivered</div>
+          <div className="text-[10px] text-zinc-500">Milestones approved</div>
         </div>
       </div>
 

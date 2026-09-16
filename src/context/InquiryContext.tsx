@@ -70,7 +70,7 @@ export const InquiryProvider: React.FC<{ children: React.ReactNode }> = ({ child
       id: `inq-${Date.now().toString().slice(-4)}`,
       createdAt: new Date().toISOString().replace('T', ' ').slice(0, 16),
       status: 'New',
-      priority: data.budgetRange.includes('10,000') || data.timeline.includes('2 weeks') ? 'High' : 'Medium'
+      priority: (data.budgetRange && data.budgetRange.includes('10,000')) || data.timeline.includes('Immediately') || data.timeline.includes('2 weeks') ? 'High' : 'Medium'
     };
     setInquiries((prev) => [newEntry, ...prev]);
   };

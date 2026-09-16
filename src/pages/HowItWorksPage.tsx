@@ -14,22 +14,27 @@ import { HOW_IT_WORKS_STEPS } from '../data/mockData';
 
 export const HowItWorksPage: React.FC = () => {
   return (
-    <div className="pt-28 sm:pt-36 pb-20 space-y-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Header */}
-      <section className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold">
-          <GitCommit className="w-3.5 h-3.5 text-emerald-600" />
-          <span>The Engagement Lifecycle</span>
-        </div>
+    <div className="relative overflow-hidden">
+      {/* Ambient Top Glow matching brand look */}
+      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-[#e8fbf2]/90 via-[#f4fcf7]/60 to-transparent pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-emerald-300/20 blur-[130px] pointer-events-none" />
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          How clients engage Jyruka.
-        </h1>
+      <div className="relative z-10 pt-28 sm:pt-36 pb-20 space-y-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <section className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold shadow-sm">
+            <GitCommit className="w-3.5 h-3.5 text-emerald-600" />
+            <span>The Engagement Lifecycle</span>
+          </div>
 
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-          From initial blueprint to sprint delivery, our website development process is designed for clarity, accountability, and maximum engineering velocity.
-        </p>
-      </section>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            How clients engage Jyruka.
+          </h1>
+
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            From initial blueprint to sprint delivery, our technology delivery process is designed for clarity, accountability, and maximum engineering velocity.
+          </p>
+        </section>
 
       {/* 4 Steps Section with connecting timeline */}
       <section className="relative">
@@ -124,7 +129,7 @@ export const HowItWorksPage: React.FC = () => {
           Ready to kick off your sprint blueprint?
         </h2>
         <p className="text-sm text-slate-300 max-w-xl mx-auto">
-          Share your requirements. We match you with vetted website development specialists within 48 hours.
+          Share your requirements. We match you with vetted technology specialists within 48 hours.
         </p>
         <Link
           to="/contact"
@@ -134,6 +139,7 @@ export const HowItWorksPage: React.FC = () => {
           <ArrowRight className="w-4 h-4" />
         </Link>
       </section>
+      </div>
     </div>
   );
 };

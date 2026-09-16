@@ -69,18 +69,18 @@ export const HomePage: React.FC = () => {
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                <span>High-Velocity Website Development</span>
+                <span>Modern Technologies & Digital Engineering</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.12]">
                 Bring your ideas to life with{' '}
                 <span className="text-emerald-600">
-                  website development
+                  advanced technologies
                 </span>
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                The future of business is yours to shape. Partner with vetted senior website development squads, engineers, and designers for high-velocity sprints with zero agency bloat.
+                The future of business is yours to shape. Partner with vetted senior engineering and design specialists for high-velocity software delivery with zero agency bloat.
               </p>
 
               {/* Pill-shaped Quick Start Action Bar */}
@@ -236,7 +236,7 @@ export const HomePage: React.FC = () => {
             Why Choose Jyruka
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            The predictability of an agency. The agility of top website development.
+            The predictability of an agency. The agility of elite technologies.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
             We eliminated bloated agency markups and the chaotic roulette of open marketplaces.
@@ -281,7 +281,7 @@ export const HomePage: React.FC = () => {
               Featured client deliveries
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-xl">
-              Inspect past sprints delivered by Jyruka website development squads. Hover cards for 3D tilt perspective.
+              Inspect past sprints delivered by Jyruka engineering squads. Hover cards for 3D tilt perspective.
             </p>
           </div>
 
@@ -328,7 +328,7 @@ export const HomePage: React.FC = () => {
         <div className="relative rounded-3xl p-8 sm:p-14 bg-slate-950 text-white border border-slate-800 shadow-2xl overflow-hidden text-center">
           <div className="relative z-10 max-w-2xl mx-auto space-y-6">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Ready to accelerate your roadmap with an elite website development squad?
+              Ready to accelerate your roadmap with an elite engineering squad?
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
               Book a 20-minute scope blueprint call. Tell us what you are building, and receive a matched specialist roster within 48 hours.

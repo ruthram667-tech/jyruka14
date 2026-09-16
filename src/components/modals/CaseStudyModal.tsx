@@ -136,7 +136,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ item, onClose })
             {/* Modal Bottom CTA */}
             <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-xs text-slate-500 text-center sm:text-left">
-                Need similar website development outcomes for your next release? Let's build your blueprint.
+                Need similar technology and software outcomes for your next release? Let's build your blueprint.
               </div>
               <Link
                 to={`/contact?service=${encodeURIComponent(item.category)}`}

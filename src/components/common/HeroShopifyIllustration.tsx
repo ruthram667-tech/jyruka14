@@ -343,12 +343,12 @@ export const HeroShopifyIllustration: React.FC = () => {
       <div className="flex items-center justify-center gap-3 sm:gap-6 mt-1 flex-wrap">
         <div className="px-3 py-1.5 rounded-full bg-white border border-emerald-200/90 shadow-sm flex items-center gap-1.5 text-xs font-bold text-slate-800">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>10+ Websites Delivered</span>
+          <span>10+ Projects Delivered</span>
         </div>
 
         <div className="px-3 py-1.5 rounded-full bg-white border border-amber-200/90 shadow-sm flex items-center gap-1.5 text-xs font-bold text-slate-800">
           <TrendingUp className="w-3.5 h-3.5 text-amber-600" />
-          <span>$50k+ Direct Client Profit</span>
+          <span>High-Impact Results</span>
         </div>
 
         <div className="hidden sm:flex px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm items-center gap-1.5 text-xs font-semibold text-slate-600">

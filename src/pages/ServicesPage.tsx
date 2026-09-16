@@ -28,22 +28,27 @@ export const ServicesPage: React.FC = () => {
   );
 
   return (
-    <div className="pt-28 sm:pt-36 pb-20 space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Header */}
-      <section className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold">
-          <Layers className="w-3.5 h-3.5 text-emerald-600" />
-          <span>Vetted Website Development Capabilities</span>
-        </div>
+    <div className="relative overflow-hidden">
+      {/* Ambient Top Glow matching HomePage */}
+      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-[#e8fbf2]/90 via-[#f4fcf7]/60 to-transparent pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-emerald-300/20 blur-[130px] pointer-events-none" />
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-          Specialized service scopes, zero overhead.
-        </h1>
+      <div className="relative z-10 pt-28 sm:pt-36 pb-20 space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <section className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-semibold shadow-sm">
+            <Layers className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Vetted Technology & Engineering Capabilities</span>
+          </div>
 
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-          From rapid 2-week MVP builds to full design system architectures, engage dedicated senior talent ready to deliver on day one.
-        </p>
-      </section>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Specialized service scopes, zero overhead.
+          </h1>
+
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            From rapid 2-week MVP builds to full design system architectures, engage dedicated senior talent ready to deliver on day one.
+          </p>
+        </section>
 
       {/* Category Pills Filter */}
       <div className="flex items-center justify-center gap-2 flex-wrap">
@@ -90,6 +95,7 @@ export const ServicesPage: React.FC = () => {
           Request Custom Squad
         </Link>
       </section>
+      </div>
     </div>
   );
 };
