@@ -31,7 +31,7 @@ jobs:
           RUN_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
           tag="${INPUT_TAG:-sha-${RUN_SHA::7}}"
-          sed -i -E "s|(image: ghcr.io/${GITHUB_REPOSITORY}):[^ ]+|\1:${tag}|" deploy/production/docker-compose.yml
+          sed -i -E "s|(image: ghcr.io/${GITHUB_REPOSITORY}):[^ ]+|\1:${tag}|" docker-compose.yml
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet || { git commit -am "deploy(prod): ${tag}" && git push; }
