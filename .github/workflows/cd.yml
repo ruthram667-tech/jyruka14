@@ -1,0 +1,38 @@
+name: cd
+on:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Tag to deploy, e.g. sha-a1b2c3d (use for manual rollback)"
+        required: true
+
+concurrency:
+  group: cd
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Pin image tag in compose
+        env:
+          INPUT_TAG: ${{ inputs.image_tag }}
+          RUN_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          tag="${INPUT_TAG:-sha-${RUN_SHA::7}}"
+          sed -i -E "s|(image: ghcr.io/${GITHUB_REPOSITORY}):[^ ]+|\1:${tag}|" deploy/production/docker-compose.yml
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet || { git commit -am "deploy(prod): ${tag}" && git push; }
+          echo "Portainer will pick this up on its next poll. Rollback: git revert this commit, or rerun with a previous tag."

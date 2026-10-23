@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  web:
+    image: ghcr.io/ruthram667-tech/jyruka14:sha-0000000   # pinned by cd.yml on every deploy
+    container_name: ${STACK_NAME:-jyruka14}-web
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+    ports:
+      - "${BIND_ADDRESS:-0.0.0.0}:${APP_PORT:-8080}:80"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks: [proxy]
+
+networks:
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-npm_default}
