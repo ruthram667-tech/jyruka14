@@ -2,7 +2,7 @@ name: ci
 on:
   push:
     branches: [main]
-    paths-ignore: ["deploy/**"]
+    paths-ignore: ["docker-compose.yml"]
   pull_request:
   workflow_dispatch:
 
