@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   web:
-    image: ghcr.io/ruthram667-tech/jyruka14:sha-e577187   # pinned by cd.yml on every deploy
+    image: ghcr.io/ruthram667-tech/jyruka14:sha-33401dc   # pinned by cd.yml on every deploy
     container_name: ${STACK_NAME:-jyruka14}-web
     restart: unless-stopped
     logging:
